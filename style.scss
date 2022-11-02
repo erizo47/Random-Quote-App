@@ -61,6 +61,13 @@ body {
             @extend .new-quote-btn;
             margin: 0 5px;
             width: 2.1em;
+         
+            .tweet-quote i {
+                color: #fff;
+            }
+            .tumblr-qoute i {
+                color: #fff;
+            }
         }
     }
     .btn:hover {

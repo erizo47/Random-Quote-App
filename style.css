@@ -62,6 +62,12 @@ body {
   margin: 0 5px;
   width: 2.1em;
 }
+.qoute-buttons .qoute-buttons-post .btn .tweet-quote i {
+  color: #fff;
+}
+.qoute-buttons .qoute-buttons-post .btn .tumblr-qoute i {
+  color: #fff;
+}
 .qoute-buttons .btn:hover {
   opacity: 0.7;
   cursor: pointer;

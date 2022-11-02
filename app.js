@@ -12,49 +12,56 @@ const colors = [
     '#77B1A9',
     '#54813c'
   ];
+
+  let quotesData = []
+  const qouteBtn = document.querySelector('#new-quote-btn')
+  const text = document.getElementById('text')
+  const author = document.getElementById('author')
+
+  const twitBtn = document.getElementById('tweet-quote')
+  const tumblrBtn = document.getElementById('tumblr-quote')
+
   let currentQuote = ''
   let currentAuthor = ''
-  
-  const qouteBtn = document.querySelector('#new-quote-btn')
-  
-  
-  
 
-  qouteBtn.addEventListener('click', () => {
-    
-    getQuote()
-  })
+  // функция инициализации приложения 
+  const init = async () => {
+    console.log('init')
+    quotesData = await getQoutes()
+    swapQuote()
+    setTwitUrl()
+  }
+  //функция получения ajax запроса
+  async function getQoutes() {
+    let result = await fetch('https://gist.githubusercontent.com/camperbot/5a022b72e96c4c9585c32bf6a75f62d9/raw/e3c6895ce42069f0ee7e991229064f167fe8ccdc/quotes.json', {
+      headers: {
+        Accept: 'application/json'
+      }})
+      .then((response) => {
+          return response.json();
+      })
+      .then((data) => {
+          return data          
+      })
+      console.log("getQuotes returns: ", result)
+      return result 
+  }
+  
+// функция выбора рандомной цитаты
+function getRandomQuote() {
+  if(quotesData && quotesData.quotes) {
+    return quotesData.quotes[
+      Math.floor(Math.random() * quotesData.quotes.length)
+    ];
+  }
+}
 
+// функция замены цвета
   function changeColor(color) {
     document.documentElement.style.setProperty('--main-color', color)
   }
 
-  
-
-  let quotesData
-  function getQoutes() {
-    fetch('https://gist.githubusercontent.com/camperbot/5a022b72e96c4c9585c32bf6a75f62d9/raw/e3c6895ce42069f0ee7e991229064f167fe8ccdc/quotes.json', {
-        headers: {
-          Accept: 'application/json'
-        }})
-        .then((response) => {
-            return response.json();
-        })
-        .then((data) => {
-            quotesData = data          
-        })
-
-    }
-  
-
-setTimeout(() => {console.log(quotesData)}, 500)
-
-function getRandomQuote() {
-    return quotesData.quotes[
-      Math.floor(Math.random() * quotesData.quotes.length)
-    ];
-}
-
+// функция анимации замены текста
 function changeText(el) {
   el.classList.add('hide')
   setTimeout(function() {
@@ -62,7 +69,8 @@ function changeText(el) {
   }, 400)
 }
 
-function getQuote() {
+// функция получения quote , замена текста и цвета
+function swapQuote() {
     let randomQuote = getRandomQuote()
 
     currentQuote = randomQuote.quote
@@ -70,6 +78,7 @@ function getQuote() {
 
     
     changeText(text)
+
     setTimeout(()=> {
       text.innerText = currentQuote
     }, 400)
@@ -84,22 +93,24 @@ function getQuote() {
     changeColor(color)
 }
 
+// слушатели событий 
 
+function setTwitUrl () {
+  const encodeTwit = encodeURIComponent('"' + currentQuote + '"' + ' ' + currentAuthor)
+  const encodeAuthorTmblr = encodeURIComponent(currentAuthor)
+  const encodeQuoteTmblr = encodeURIComponent(currentQuote)
 
-const newQuoteBtn = document.getElementById('new-quote-btn')
-const text = document.getElementById('text')
-const author = document.getElementById('author')
+  const twitUrl = `https://twitter.com/intent/tweet?hashtags=quotes&text=${encodeTwit}`
+  const tmblrUrl = `https://www.tumblr.com/widgets/share/tool?posttype=quote&tags=quotes&caption=${encodeAuthorTmblr}&content=${encodeQuoteTmblr}&canonicalUrl=https%3A%2F%2Fwww.tumblr.com%2Fbuttons&shareSource=tumblr_share_button`
 
-
-
-
-  
-document.addEventListener('DOMContentLoaded', ()=> {
-    getQoutes()
-    setTimeout(() => {
-      getQuote()
-    }, 100)
-    
+  twitBtn.setAttribute("href", twitUrl)
+  tumblrBtn.setAttribute('href', tmblrUrl)
+}
+qouteBtn.addEventListener('click', () => {    
+  swapQuote()
 });
 
-console.log(getRandomQuote())
+document.addEventListener('DOMContentLoaded', ()=> {
+    init()
+    
+});
