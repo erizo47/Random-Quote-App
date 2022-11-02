@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" integrity="sha384-xeJqLiuOvjUBq3iGOjvSQSIlwrpqjSHXpduPd6rQpuiM3f5/ijby8pCsnbu5S81n" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+        <div class="quote-box" id="quote-box"> <!-- это бокс с цитатами -->
+                <div class="qoute-text" id="quote-text">
+                    <i class="bi bi-chat-left-quote-fill"></i>
+                    <span id="text" class="show"></span>
+                </div>
+                <div class="author">- <span class="show" id="author"></span></div>
+                <div class="qoute-buttons"> <!-- контейнер с кнопками -->
+                    <div class="qoute-buttons-post"> <!-- контейнер с кнопками запостить -->
+                        <div class="btn">
+                            <a class="tweet-quote" id="tweet-quote"><i class="fa-brands fa-twitter"></i></i></a>
+                        </div>
+                        <div class="btn">
+                            <a class="tumblr-qoute" id="tumblr-quote"><i class="fa-brands fa-tumblr"></i></i></a>
+                        </div>                  
+                    </div>
+                    <div class="new-quote-btn" id="new-quote-btn"><span>New Qoute</span></div>
+                </div>      
+        </div>
+        <script src="app.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
+</body>
+</html>

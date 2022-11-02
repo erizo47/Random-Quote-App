@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap");
+:root {
+  --main-color: #3997a8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background: var(--main-color);
+  transition: all 800ms ease-in;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.quote-box {
+  background: #fff;
+  max-width: 600px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 2%;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.qoute-text {
+  color: var(--main-color);
+  font-size: 1.75em;
+  text-align: center;
+  transition: all 800ms ease-in;
+}
+.qoute-text i {
+  opacity: 0.7;
+}
+
+.author {
+  color: var(--main-color);
+  margin-top: 3%;
+  font-size: 1em;
+  text-align: end;
+  transition: all 800ms ease-in;
+}
+
+.qoute-buttons {
+  display: flex;
+  margin-top: 7%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.qoute-buttons .qoute-buttons-post {
+  display: flex;
+  flex-direction: row;
+}
+.qoute-buttons .qoute-buttons-post .btn {
+  margin: 0 5px;
+  width: 2.1em;
+}
+.qoute-buttons .btn:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+.qoute-buttons .new-quote-btn, .qoute-buttons .qoute-buttons-post .btn {
+  height: 2.1em;
+  margin: 0 5px;
+  border-radius: 5px;
+  background: var(--main-color);
+  transition: background 500ms ease-in;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+.qoute-buttons .new-quote-btn:hover, .qoute-buttons .qoute-buttons-post .btn:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+.qoute-buttons .new-quote-btn span, .qoute-buttons .qoute-buttons-post .btn span {
+  margin: auto 15px;
+  font-size: 0.8em;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.show {
+  opacity: 1;
+  transition: opacity 800ms ease;
+}
+
+.hide {
+  transition: opacity 400ms ease;
+  opacity: 0;
+}/*# sourceMappingURL=style.css.map */
