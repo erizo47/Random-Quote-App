@@ -93,7 +93,7 @@ function swapQuote() {
     changeColor(color)
 }
 
-// слушатели событий 
+// функция генерация url для qoute-buttons-post
 
 function setTwitUrl () {
   const encodeTwit = encodeURIComponent('"' + currentQuote + '"' + ' ' + currentAuthor)
@@ -106,6 +106,11 @@ function setTwitUrl () {
   twitBtn.setAttribute("href", twitUrl)
   tumblrBtn.setAttribute('href', tmblrUrl)
 }
+
+
+// слушатели событий 
+
+
 qouteBtn.addEventListener('click', () => {    
   swapQuote()
 });
