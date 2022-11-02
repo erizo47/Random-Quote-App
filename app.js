@@ -45,7 +45,8 @@ const colors = [
         })
 
     }
-    
+  
+
 setTimeout(() => {console.log(quotesData)}, 500)
 
 function getRandomQuote() {
@@ -97,7 +98,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
     getQoutes()
     setTimeout(() => {
       getQuote()
-    }, 50)
+    }, 100)
     
 });
 
