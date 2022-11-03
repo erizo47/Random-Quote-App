@@ -17,7 +17,7 @@ const colors = [
   const qouteBtn = document.querySelector('#new-quote-btn')
   const text = document.getElementById('text')
   const author = document.getElementById('author')
-
+  
   const twitBtn = document.getElementById('tweet-quote')
   const tumblrBtn = document.getElementById('tumblr-quote')
 
@@ -76,7 +76,6 @@ function swapQuote() {
     currentQuote = randomQuote.quote
     currentAuthor = randomQuote.author
 
-    
     changeText(text)
 
     setTimeout(()=> {

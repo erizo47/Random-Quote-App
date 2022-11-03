@@ -7,7 +7,12 @@
     margin: 0;
     padding: 0;
   }
-  
+
+@media screen and (max-width: 980px) {
+    .quote-box {
+        margin: 10px;
+    }
+}
 body {
     width: 100vw;
     height: 100vh;
